@@ -5,14 +5,14 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/debian/inception-42/srcs/wordpress
+      device: /home/debian/Inception/srcs/wordpress
       o: bind
       type: none
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /home/debian/inception-42/srcs/mariadb
+      device: /home/debian/Inception/srcs/mariadb
       o: bind
       type: none
 
@@ -40,8 +40,6 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress/.
     image: wordpress:42
-    ports:
-      - "443:443"
     depends_on:
       - mariadb
     volumes:
@@ -55,7 +53,7 @@ services:
     container_name: mariadb
     build: ./requirements/mariadb/.
     image: mariadb:42
-    volumens:
+    volumes:
       - mariadb:/var/lib/mysql
     env_file:
       - .env

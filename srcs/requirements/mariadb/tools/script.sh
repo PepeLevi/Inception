@@ -2,11 +2,11 @@
 
 service mysql start 
 
-echo "create database if not exists $MYSQL_DATABASE ;" > db1.sql
-echo "create user if not exists '$MYSQL_USER'@'%' identified by '$MYSQL_PASSWORD' ;" >> db1.sql
-echo "grant all privileges on $db1_name.* to '$MYSQL_USER'@'%' ;" >> db1.sql
-echo "alter user 'root'@'localhost' identified by 'MYSQL_ROOT_PASSWORD' ;" >> db1.sql
-echo "flush privileges;" >> db1.sql
+echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE ;" > db1.sql
+echo "CREATE USER IF NOT EXISTS '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;" >> db1.sql
+echo "GRANT ALL PRIVILEGES ON $db1_name.* TO '$MYSQL_USER'@'%' ;" >> db1.sql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'MYSQL_ROOT_PASSWORD' ;" >> db1.sql
+echo "FLUSH PRIVILEGES;" >> db1.sql
 
 mysql < db1.sql
 
