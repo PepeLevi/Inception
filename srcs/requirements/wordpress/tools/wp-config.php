@@ -59,7 +59,7 @@ define( 'NONCE_SALT',       '7Ea$kvU|lkO8&X]b7^#K+w! lH2)SOelLiaYYX(Zz)Ebk_]-#m,
 
 define( 'WP_REDIS_HOST', 'redis' );
 define( 'WP_REDIS_PORT', 6379 );     
-
+define( 'WP_REDIS_CLIENT', 'phpredis' );
 
 define('WP_CACHE', true);
 

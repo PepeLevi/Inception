@@ -6,4 +6,6 @@ COPY ./tools/script.sh /
 
 COPY ./tools/wp-config.php /
 
+EXPOSE 9000
+
 CMD [ "/script.sh" ]

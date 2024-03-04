@@ -40,7 +40,7 @@ wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 wp theme install astra --activate --allow-root
 
 
-wp plugin install redis-cache --activate --allow-root
+#wp plugin install redis-cache --activate --allow-root
 
 wp plugin update --all --allow-root
 
@@ -52,6 +52,6 @@ mkdir /run/php
 
 
 
-wp redis enable --allow-root
+#wp redis enable --allow-root
 
 /usr/sbin/php-fpm7.3 -F
