@@ -1,6 +1,10 @@
+DATA_PATH = home/debian/data
+
 all: up
 
 up:
+	@sudo mkdir -p $(DATA_PATH)/wordpress
+	@sudo mkdir -p $(DATA_PATH)/mariadb
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
 down:
@@ -16,8 +20,8 @@ ps:
 	@docker ps
 
 clean:
-	docker stop $$(docker ps -qa);\
-	docker rm $$(docker ps -qa);\
-	docker rmi -f $$(docker images -qa);\
-	docker volume rm $$(docker volume ls -q);\
-	docker network rm $$(docker network ls -q);\
+	@docker-compose -f ./srcs/docker-compose.yml down -v
+	@sudo docker system prune -af
+	@sudo rm -rf $(DATA_PATH)
+	
+re: clean up
