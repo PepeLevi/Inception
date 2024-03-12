@@ -1,4 +1,5 @@
 DATA_PATH = home/debian/data
+DATA_DEL = home
 
 all: up
 
@@ -22,6 +23,6 @@ ps:
 clean:
 	@docker-compose -f ./srcs/docker-compose.yml down -v
 	@sudo docker system prune -af
-	@sudo rm -rf $(DATA_PATH)
+	@sudo rm -rf $(DATA_DEL)
 	
 re: clean up

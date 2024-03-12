@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 EXPOSE 3306
 
@@ -8,6 +8,8 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 COPY ./tools/script.sh /
 
-RUN chmod +x /script.sh
+COPY ./tools/install.txt /
+
+RUN chmod 777 /script.sh
 
 CMD ["/script.sh"]
